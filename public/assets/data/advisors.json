@@ -1,0 +1,39 @@
+[
+  {
+    "id": "sample-advisor-01",
+    "name": "アドバイザー名（サンプル）",
+    "title": "経営・事業戦略アドバイザー",
+    "photo": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=900&q=80",
+    "specialties": [
+      "経営・事業",
+      "新規事業"
+    ],
+    "summary": "事業の方向性や経営課題を整理し、次の一歩を一緒に考えます。",
+    "biography": "正式なプロフィールは本部確認後に登録します。",
+    "offerings": [
+      {
+        "name": "オンライン相談（サンプル）",
+        "duration": "45分",
+        "price": "料金確認中",
+        "description": "ご相談内容を伺い、課題や選択肢を整理します。"
+      }
+    ],
+    "bookingUrl": "#",
+    "published": false
+  },
+  {
+    "id": "sample-advisor-02",
+    "name": "アドバイザー名（サンプル）",
+    "title": "キャリア・人材アドバイザー",
+    "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80",
+    "specialties": [
+      "キャリア・転職",
+      "人材・組織"
+    ],
+    "summary": "キャリアや人材育成、組織づくりに関する悩みを対話から整理します。",
+    "biography": "正式なプロフィールは本部確認後に登録します。",
+    "offerings": [],
+    "bookingUrl": "#",
+    "published": false
+  }
+]
