@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0D2745">
+  <meta name="description" content="専門分野や経歴から、相談したいテーマに合うシニア・アドバイザーをお探しいただけます。">
+  <title>アドバイザー一覧 | Senior Experience Network</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/assets/js/advisors.js" defer></script>
+</head>
+<body class="bg-white antialiased">
+  <header class="border-b border-slate-200 bg-navy text-white">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 lg:px-8">
+      <a href="/" class="focus-ring flex items-center gap-3">
+        <span class="grid h-11 w-11 place-items-center rounded-full border border-gold font-serif text-xl text-gold">S</span>
+        <span class="leading-tight"><span class="block font-serif text-sm font-semibold sm:text-base">Senior Experience Network</span><span class="mt-1 block text-[10px] tracking-[.12em] text-white/80 sm:text-xs">経験をつなぐシニア・アドバイザー</span></span>
+      </a>
+      <a href="/" class="focus-ring text-sm text-white/80 hover:text-white">トップページへ戻る</a>
+    </div>
+  </header>
+  <main>
+    <section class="bg-cream py-16 sm:py-20">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <p class="section-kicker text-xs font-semibold uppercase text-gold">Our advisors</p>
+        <h1 class="mt-4 font-serif text-3xl font-semibold text-ink sm:text-5xl">アドバイザー一覧</h1>
+        <p class="mt-5 max-w-2xl text-sm leading-8 text-slate-600">これまでの経験や得意分野から、相談したいテーマに合うアドバイザーをお探しください。</p>
+      </div>
+    </section>
+    <section class="py-14 sm:py-20">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <label class="flex items-center gap-3 text-sm text-slate-600">相談分野
+            <select id="specialty-filter" class="focus-ring rounded border border-slate-300 bg-white px-4 py-3 text-ink">
+              <option value="">すべての分野</option>
+              <option>キャリア・転職</option><option>経営・事業</option><option>人材・組織</option><option>新規事業</option><option>海外展開・経営判断</option>
+            </select>
+          </label>
+          <p id="advisor-count" class="text-sm text-slate-500" aria-live="polite"></p>
+        </div>
+        <div id="advisor-list" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <p class="col-span-full py-12 text-center text-sm text-slate-500">アドバイザー情報を読み込んでいます…</p>
+        </div>
+        <p id="advisor-empty" class="hidden py-12 text-center text-sm leading-7 text-slate-500">現在、公開中のアドバイザー情報はありません。公開準備が整い次第、こちらに掲載します。</p>
+      </div>
+    </section>
+  </main>
+  <footer class="bg-[#091B30] py-8 text-center text-xs text-white/60">© <span id="current-year">2026</span> Senior Experience Network</footer>
+</body>
+</html>
