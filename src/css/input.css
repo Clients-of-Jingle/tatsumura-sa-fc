@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+html { scroll-behavior: smooth; }
+body { font-family: "Noto Sans JP", system-ui, sans-serif; color: #233246; }
+::selection { background: #d9c58d; color: #102844; }
+.hero-overlay {
+  background: linear-gradient(90deg, rgba(9,31,55,.88) 0%, rgba(9,31,55,.69) 44%, rgba(9,31,55,.08) 100%);
+}
+.section-kicker { letter-spacing: .22em; }
+.gold-rule { width: 3.5rem; height: 2px; background: #B99A55; }
+.nav-link { position: relative; }
+.nav-link::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -7px; height: 1px; background: #B99A55; transition: right .2s ease; }
+.nav-link:hover::after, .nav-link:focus-visible::after { right: 0; }
+.focus-ring:focus-visible { outline: 3px solid #B99A55; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
