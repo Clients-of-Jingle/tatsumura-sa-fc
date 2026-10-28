@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "datasetType": "mock",
+  "note": "確認用のモックデータです。実際のFC契約・担当区域・アドバイザー配置を示すものではありません。都市・市区町村・個別の担当エリアは未設定です。",
+  "regions": [
+    {
+      "id": "AREA-HOKKAIDO",
+      "name": "北海道",
+      "slug": "hokkaido",
+      "prefectures": [
+        "北海道"
+      ],
+      "description": "北海道エリアの相談窓口を想定した地域データです。",
+      "fcId": null,
+      "advisorIds": [],
+      "pagePath": null,
+      "status": "preview",
+      "displayOrder": 1
+    },
+    {
+      "id": "AREA-TOHOKU",
+      "name": "東北",
+      "slug": "tohoku",
+      "prefectures": [
+        "青森県",
+        "岩手県",
+        "宮城県",
+        "秋田県",
+        "山形県",
+        "福島県"
+      ],
+      "description": "東北エリアの相談窓口を想定した地域データです。",
+      "fcId": null,
+      "advisorIds": [],
+      "pagePath": null,
+      "status": "preview",
+      "displayOrder": 2
+    },
+    {
+      "id": "AREA-KANTO",
+      "name": "関東",
+      "slug": "kanto",
+      "prefectures": [
+        "茨城県",
+        "栃木県",
+        "群馬県",
+        "埼玉県",
+        "千葉県",
+        "東京都",
+        "神奈川県"
+      ],
+      "description": "関東エリアの相談窓口を想定した地域データです。",
+      "fcId": null,
+      "advisorIds": [],
+      "pagePath": null,
+      "status": "preview",
+      "displayOrder": 3
+    },
+    {
+      "id": "AREA-CHUBU",
+      "name": "中部",
+      "slug": "chubu",
+      "prefectures": [
+        "新潟県",
+        "富山県",
+        "石川県",
+        "福井県",
+        "山梨県",
+        "長野県",
+        "岐阜県",
+        "静岡県",
+        "愛知県"
+      ],
+      "description": "中部エリアの相談窓口を想定した地域データです。",
+      "fcId": null,
+      "advisorIds": [],
+      "pagePath": null,
+      "status": "preview",
+      "displayOrder": 4
+    },
+    {
+      "id": "AREA-KINKI",
+      "name": "近畿",
+      "slug": "kinki",
+      "prefectures": [
+        "三重県",
+        "滋賀県",
+        "京都府",
+        "大阪府",
+        "兵庫県",
+        "奈良県",
+        "和歌山県"
+      ],
+      "description": "近畿エリアの相談窓口を想定した地域データです。",
+      "fcId": null,
+      "advisorIds": [],
+      "pagePath": null,
+      "status": "preview",
+      "displayOrder": 5
+    },
+    {
+      "id": "AREA-CHUGOKU",
+      "name": "中国",
+      "slug": "chugoku",
+      "prefectures": [
+        "鳥取県",
+        "島根県",
+        "岡山県",
+        "広島県",
+        "山口県"
+      ],
+      "description": "中国エリアの相談窓口を想定した地域データです。",
+      "fcId": null,
+      "advisorIds": [],
+      "pagePath": null,
+      "status": "preview",
+      "displayOrder": 6
+    },
+    {
+      "id": "AREA-SHIKOKU",
+      "name": "四国",
+      "slug": "shikoku",
+      "prefectures": [
+        "徳島県",
+        "香川県",
+        "愛媛県",
+        "高知県"
+      ],
+      "description": "四国エリアの相談窓口を想定した地域データです。",
+      "fcId": null,
+      "advisorIds": [],
+      "pagePath": null,
+      "status": "preview",
+      "displayOrder": 7
+    },
+    {
+      "id": "AREA-KYUSHU-OKINAWA",
+      "name": "九州・沖縄",
+      "slug": "kyushu-okinawa",
+      "prefectures": [
+        "福岡県",
+        "佐賀県",
+        "長崎県",
+        "熊本県",
+        "大分県",
+        "宮崎県",
+        "鹿児島県",
+        "沖縄県"
+      ],
+      "description": "九州・沖縄エリアの相談窓口を想定した地域データです。",
+      "fcId": null,
+      "advisorIds": [],
+      "pagePath": null,
+      "status": "preview",
+      "displayOrder": 8
+    }
+  ]
+}
