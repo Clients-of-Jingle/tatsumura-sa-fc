@@ -51,7 +51,9 @@
       ],
       "description": "関東エリアの相談窓口を想定した地域データです。",
       "fcId": null,
-      "advisorIds": [],
+      "advisorIds": [
+        "sample-advisor-01"
+      ],
       "pagePath": null,
       "status": "preview",
       "displayOrder": 3
@@ -93,7 +95,9 @@
       ],
       "description": "近畿エリアの相談窓口を想定した地域データです。",
       "fcId": null,
-      "advisorIds": [],
+      "advisorIds": [
+        "sample-advisor-02"
+      ],
       "pagePath": null,
       "status": "preview",
       "displayOrder": 5
