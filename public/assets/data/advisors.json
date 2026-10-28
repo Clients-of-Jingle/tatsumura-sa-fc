@@ -22,7 +22,7 @@
     "published": false,
     "preview": true,
     "regionIds": [
-      "kanto"
+      "AREA-KANTO"
     ]
   },
   {
@@ -41,7 +41,7 @@
     "published": false,
     "preview": true,
     "regionIds": [
-      "kinki"
+      "AREA-KINKI"
     ]
   }
 ]
