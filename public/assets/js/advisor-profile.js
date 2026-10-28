@@ -8,10 +8,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   try {
-    const response = await fetch("/assets/data/advisors.json", { cache: "no-store" });
-    if (!response.ok) throw new Error("Advisor data could not be loaded");
-    const advisors = await response.json();
-    const advisor = advisors.find((item) => item.id === id && item.published === true);
+    const [advisorResponse, regionResponse] = await Promise.all([
+      fetch("/assets/data/advisors.json", { cache: "no-store" }),
+      fetch("/assets/data/regions.json", { cache: "no-store" })
+    ]);
+    if (!advisorResponse.ok || !regionResponse.ok) throw new Error("Advisor data could not be loaded");
+    const advisors = await advisorResponse.json();
+    const regionData = await regionResponse.json();
+    const regions = regionData.regions || [];
+    const advisor = advisors.find((item) => item.id === id && (item.published === true || item.preview === true));
     if (!advisor) {
       root.innerHTML = '<p class="py-20 text-center leading-8 text-slate-600">このプロフィールは現在公開されていません。<br><a class="mt-4 inline-block underline" href="/advisors/">アドバイザー一覧へ戻る</a></p>';
       return;
@@ -26,6 +31,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     portrait.className = "aspect-[4/5] w-full object-cover";
     portrait.loading = "lazy";
     const main = document.createElement("div");
+    if (advisor.preview === true && advisor.published !== true) {
+      const previewNotice = document.createElement("p");
+      previewNotice.className = "mb-6 border border-amber-200 bg-amber-50 p-4 text-sm leading-7 text-amber-950";
+      previewNotice.textContent = "確認用サンプルです。氏名・経歴・相談メニュー・対応地域は実在の登録情報ではありません。";
+      main.appendChild(previewNotice);
+    }
     const title = document.createElement("p");
     title.className = "text-sm font-semibold tracking-wide text-gold";
     title.textContent = advisor.title || "";
@@ -43,13 +54,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     const summary = document.createElement("p");
     summary.className = "mt-7 text-base leading-8 text-slate-700";
     summary.textContent = advisor.summary || "";
+    const regionNames = (advisor.regionIds || []).map((regionId) => regions.find((region) => region.id === regionId)?.name).filter(Boolean);
+    const region = document.createElement("p");
+    region.className = "mt-4 text-sm text-slate-500";
+    region.textContent = regionNames.length ? `対応地域（仮）：${regionNames.join("・")}` : "";
     const bioTitle = document.createElement("h2");
     bioTitle.className = "mt-9 border-b border-slate-200 pb-3 font-serif text-xl font-semibold text-ink";
     bioTitle.textContent = "プロフィール";
     const bio = document.createElement("p");
     bio.className = "mt-4 whitespace-pre-line text-sm leading-8 text-slate-600";
     bio.textContent = advisor.biography || "";
-    main.append(title, name, tags, summary, bioTitle, bio);
+    main.append(title, name, tags, summary);
+    if (regionNames.length) main.appendChild(region);
+    main.append(bioTitle, bio);
 
     const offeringsTitle = document.createElement("h2");
     offeringsTitle.className = "mt-12 border-b border-slate-200 pb-3 font-serif text-xl font-semibold text-ink";
@@ -80,7 +97,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     main.appendChild(offerings);
 
-    if (advisor.bookingUrl && advisor.bookingUrl !== "#") {
+    if (advisor.published === true && advisor.bookingUrl && advisor.bookingUrl !== "#") {
       const booking = document.createElement("a");
       booking.href = advisor.bookingUrl;
       booking.target = "_blank";
