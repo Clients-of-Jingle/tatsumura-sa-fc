@@ -19,7 +19,11 @@
       }
     ],
     "bookingUrl": "#",
-    "published": false
+    "published": false,
+    "preview": true,
+    "regionIds": [
+      "kanto"
+    ]
   },
   {
     "id": "sample-advisor-02",
@@ -34,6 +38,10 @@
     "biography": "正式なプロフィールは本部確認後に登録します。",
     "offerings": [],
     "bookingUrl": "#",
-    "published": false
+    "published": false,
+    "preview": true,
+    "regionIds": [
+      "kinki"
+    ]
   }
 ]
