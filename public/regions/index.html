@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0D2745">
+  <meta name="description" content="全国の主要地域区分をご案内します。地域データは構成確認用のプレビューです。">
+  <title>地域一覧 | Senior Experience Network</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/main.js" defer></script>
+</head>
+<body class="bg-white antialiased">
+  <header class="bg-navy text-white">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 lg:px-8">
+      <a href="/" class="focus-ring font-serif font-semibold">Senior Experience Network</a>
+      <nav class="flex flex-wrap gap-4 text-sm" aria-label="ページナビゲーション">
+        <a href="/fc-recruitment/" class="text-white/80 hover:text-white">FC・地域パートナー</a>
+        <a href="/" class="text-white/80 hover:text-white">トップへ戻る</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="bg-cream py-16 sm:py-20">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <p class="section-kicker text-xs font-semibold uppercase text-gold">Regional network</p>
+        <h1 class="mt-4 font-serif text-3xl font-semibold text-ink sm:text-5xl">全国の主要地域</h1>
+        <p class="mt-5 max-w-3xl text-sm leading-8 text-slate-600">オンライン相談を基本に、全国の相談ニーズと経験豊かなアドバイザーをつなぐネットワークを想定しています。地域区分は、今後の運営体制や地域パートナーの検討に合わせて調整できます。</p>
+      </div>
+    </section>
+    <section class="py-12 sm:py-16">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="mb-8 border border-amber-200 bg-amber-50 p-5 sm:p-6">
+          <p class="font-semibold text-ink">確認用プレビュー</p>
+          <p class="mt-2 text-sm leading-7 text-slate-700">以下は地域構成を確認するための仮データです。FC契約、担当エリア、アドバイザーの配置・対応可否を示すものではありません。市区町村や個別の担当区域は、運営方針が決まってから追加できます。</p>
+        </div>
+        <div id="regions-status" class="py-8 text-center text-sm text-slate-500" role="status" aria-live="polite">地域データを読み込んでいます…</div>
+        <div id="regions-list" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3"></div>
+        <div class="mt-12 flex flex-wrap gap-3">
+          <a href="/advisors/" class="inline-flex rounded-full bg-navy px-7 py-4 font-semibold text-white hover:bg-ink">アドバイザーを探す →</a>
+          <a href="/fc-recruitment/" class="inline-flex rounded-full border border-slate-300 px-7 py-4 font-semibold text-ink hover:border-gold">地域パートナーについて →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="bg-[#091B30] py-8 text-center text-xs text-white/60">© <span id="current-year">2026</span> Senior Experience Network</footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const status = document.getElementById("regions-status");
+      const list = document.getElementById("regions-list");
+      try {
+        const response = await fetch("/assets/data/regions.json");
+        if (!response.ok) throw new Error("地域データを取得できませんでした");
+        const data = await response.json();
+        const regions = [...(data.regions || [])].sort((a, b) => a.displayOrder - b.displayOrder);
+        if (!regions.length) throw new Error("表示できる地域データがありません");
+        list.innerHTML = regions.map((region) => {
+          const prefectures = (region.prefectures || []).map((name) =>
+            '<span class="inline-flex rounded-full bg-cream px-3 py-1 text-xs text-slate-700">' + escapeHtml(name) + '</span>'
+          ).join("");
+          return '<article class="border border-slate-200 p-6 transition hover:border-gold/70 hover:shadow-soft">' +
+            '<div class="flex items-start justify-between gap-3"><h2 class="font-serif text-xl font-semibold text-ink">' + escapeHtml(region.name) + '</h2>' +
+            '<span class="shrink-0 rounded-full border border-slate-200 px-2.5 py-1 text-[10px] text-slate-500">構成案</span></div>' +
+            '<p class="mt-3 text-sm leading-7 text-slate-600">' + escapeHtml(region.description || "") + '</p>' +
+            '<div class="mt-5 flex flex-wrap gap-2">' + prefectures + '</div>' +
+            '</article>';
+        }).join("");
+        status.classList.add("hidden");
+      } catch (error) {
+        status.textContent = "地域データを表示できませんでした。時間をおいて再度お試しください。";
+      }
+    });
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+      })[char]);
+    }
+  </script>
+</body>
+</html>
