@@ -3,7 +3,7 @@
     "id": "sample-advisor-01",
     "name": "アドバイザー名（サンプル）",
     "title": "経営・事業戦略アドバイザー",
-    "photo": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=900&q=80",
+    "photo": "/assets/images/advisor-male.svg",
     "specialties": [
       "経営・事業",
       "新規事業"
@@ -29,7 +29,7 @@
     "id": "sample-advisor-02",
     "name": "アドバイザー名（サンプル）",
     "title": "キャリア・人材アドバイザー",
-    "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80",
+    "photo": "/assets/images/advisor-female.svg",
     "specialties": [
       "キャリア・転職",
       "人材・組織"
